@@ -1,0 +1,261 @@
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: transparent; }
+  .site { width: 100%; background: var(--surface-2); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; border-bottom: 0.5px solid var(--border); background: var(--surface-2); }
+  .nav-logo { font-family: var(--font-voice); font-size: 22px; font-weight: 500; letter-spacing: 2px; color: var(--text-primary); text-transform: uppercase; }
+  .nav-logo span { color: var(--text-accent); }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-link { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-secondary); cursor: pointer; }
+  .nav-btn { padding: 8px 20px; background: var(--text-primary); color: var(--surface-2); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; cursor: pointer; }
+
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 320px; }
+  .hero-left { background: var(--surface-0); padding: 52px 40px; display: flex; flex-direction: column; justify-content: center; }
+  .hero-tag { display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-accent); background: var(--bg-accent); border-radius: 2px; padding: 4px 10px; margin-bottom: 20px; width: fit-content; }
+  .hero-title { font-family: var(--font-voice); font-size: 38px; font-weight: 400; color: var(--text-primary); line-height: 1.2; margin-bottom: 16px; }
+  .hero-sub { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 28px; max-width: 320px; }
+  .hero-btns { display: flex; gap: 12px; }
+  .btn-dark { padding: 12px 24px; background: var(--text-primary); color: var(--surface-2); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; cursor: pointer; border: none; }
+  .btn-light { padding: 11px 23px; background: transparent; color: var(--text-primary); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; cursor: pointer; border: 0.5px solid var(--border-strong); }
+  .hero-right { background: var(--surface-1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .hero-icon-wrap { width: 160px; height: 160px; border-radius: 50%; border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; }
+  .hero-icon-inner { width: 100px; height: 100px; border-radius: 50%; background: var(--surface-2); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; }
+  .hero-icon-inner i { font-size: 40px; color: var(--text-muted); }
+  .hero-badge { position: absolute; top: 20px; right: 20px; background: var(--surface-2); border: 0.5px solid var(--border); border-radius: 2px; padding: 6px 12px; font-size: 10px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; }
+  .hero-badge2 { position: absolute; bottom: 20px; left: 20px; background: var(--bg-success); border-radius: 2px; padding: 6px 12px; font-size: 10px; letter-spacing: 1px; color: var(--text-success); text-transform: uppercase; }
+
+  .strip { display: flex; justify-content: space-around; padding: 14px 32px; border-bottom: 0.5px solid var(--border); background: var(--surface-2); }
+  .strip-item { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+
+  .services { padding: 48px 32px; background: var(--surface-1); }
+  .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; }
+  .section-title { font-family: var(--font-voice); font-size: 26px; font-weight: 400; color: var(--text-primary); }
+  .section-link { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-secondary); cursor: pointer; }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .service-card { background: var(--surface-2); border: 0.5px solid var(--border); border-radius: 4px; padding: 20px; text-align: center; }
+  .service-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--surface-0); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+  .service-icon i { font-size: 22px; color: var(--text-muted); }
+  .service-name { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .service-price { font-size: 18px; font-weight: 500; color: var(--text-accent); margin-bottom: 4px; }
+  .service-time { font-size: 12px; color: var(--text-muted); }
+
+  .about { display: grid; grid-template-columns: 1fr 1fr; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); }
+  .about-left { padding: 48px 40px; background: var(--surface-2); }
+  .about-eyebrow { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+  .about-title { font-family: var(--font-voice); font-size: 28px; font-weight: 400; color: var(--text-primary); margin-bottom: 16px; line-height: 1.3; }
+  .about-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; }
+  .about-right { background: var(--surface-0); padding: 40px; display: flex; align-items: center; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; }
+  .stat-card { background: var(--surface-2); border: 0.5px solid var(--border); border-radius: 4px; padding: 20px; text-align: center; }
+  .stat-num { font-family: var(--font-voice); font-size: 32px; color: var(--text-primary); }
+  .stat-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
+
+  .booking { padding: 48px 32px; background: var(--surface-0); border-bottom: 0.5px solid var(--border); }
+  .booking-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .booking-title { font-family: var(--font-voice); font-size: 28px; font-weight: 400; color: var(--text-primary); margin-bottom: 12px; }
+  .booking-sub { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; }
+  .booking-form { display: flex; flex-direction: column; gap: 12px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-input { padding: 10px 14px; font-size: 13px; border: 0.5px solid var(--border-strong); border-radius: 2px; background: var(--surface-2); color: var(--text-primary); }
+  .form-select { padding: 10px 14px; font-size: 13px; border: 0.5px solid var(--border-strong); border-radius: 2px; background: var(--surface-2); color: var(--text-secondary); }
+  .form-submit { padding: 12px; background: var(--text-primary); color: var(--surface-2); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; }
+
+  .reviews { padding: 48px 32px; background: var(--surface-1); border-bottom: 0.5px solid var(--border); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+  .review-card { background: var(--surface-2); border: 0.5px solid var(--border); border-radius: 4px; padding: 20px; }
+  .review-stars { display: flex; gap: 3px; margin-bottom: 10px; }
+  .review-stars i { font-size: 13px; color: var(--text-warning); }
+  .review-text { font-size: 13px; color: var(--text-secondary); line-height: 1.65; font-style: italic; font-family: var(--font-voice); margin-bottom: 14px; }
+  .review-author { font-size: 12px; font-weight: 500; color: var(--text-primary); }
+
+  .footer { padding: 32px; border-top: 0.5px solid var(--border); display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+  .footer-logo { font-family: var(--font-voice); font-size: 18px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-primary); margin-bottom: 10px; }
+  .footer-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social i { font-size: 18px; color: var(--text-muted); }
+  .footer-col-title { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-primary); font-weight: 500; margin-bottom: 14px; }
+  .footer-link { display: block; font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; cursor: pointer; }
+  .footer-bottom { border-top: 0.5px solid var(--border); padding: 16px 32px; display: flex; justify-content: space-between; }
+  .footer-copy { font-size: 11px; color: var(--text-muted); }
+</style>
+
+<div class="site">
+  <nav class="nav">
+    <div class="nav-logo">The <span>Barber</span></div>
+    <div class="nav-links">
+      <a class="nav-link">Services</a>
+      <a class="nav-link">Galerie</a>
+      <a class="nav-link">À propos</a>
+      <a class="nav-link">Contact</a>
+    </div>
+    <div class="nav-btn">Réserver</div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Barbier professionnel — Marseille</div>
+      <h1 class="hero-title">L'art du rasage à son sommet</h1>
+      <p class="hero-sub">Coupe, barbe, rasage traditionnel. Un savoir-faire authentique dans un cadre moderne et élégant.</p>
+      <div class="hero-btns">
+        <button class="btn-dark">Prendre rendez-vous</button>
+        <button class="btn-light">Voir nos services</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-icon-wrap">
+        <div class="hero-icon-inner">
+          <i class="ti ti-scissors" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="hero-badge">Ouvert 7j/7</div>
+      <div class="hero-badge2">Réservation en ligne</div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item"><i class="ti ti-map-pin" aria-hidden="true"></i>Marseille 13010</div>
+    <div class="strip-item"><i class="ti ti-clock" aria-hidden="true"></i>9h - 20h tous les jours</div>
+    <div class="strip-item"><i class="ti ti-phone" aria-hidden="true"></i>06 00 00 00 00</div>
+    <div class="strip-item"><i class="ti ti-star" aria-hidden="true"></i>4.9/5 — 200+ avis</div>
+  </div>
+
+  <div class="services">
+    <div class="section-header">
+      <h2 class="section-title">Nos prestations</h2>
+      <span class="section-link">Réserver →</span>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-scissors" aria-hidden="true"></i></div>
+        <div class="service-name">Coupe homme</div>
+        <div class="service-price">20€</div>
+        <div class="service-time">30 min</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-razor" aria-hidden="true"></i></div>
+        <div class="service-name">Barbe</div>
+        <div class="service-price">15€</div>
+        <div class="service-time">20 min</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-sparkles" aria-hidden="true"></i></div>
+        <div class="service-name">Coupe + Barbe</div>
+        <div class="service-price">30€</div>
+        <div class="service-time">45 min</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-crown" aria-hidden="true"></i></div>
+        <div class="service-name">Rasage traditionnel</div>
+        <div class="service-price">25€</div>
+        <div class="service-time">40 min</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about">
+    <div class="about-left">
+      <div class="about-eyebrow">Notre histoire</div>
+      <h2 class="about-title">Un barbier de confiance depuis 10 ans</h2>
+      <p class="about-text">Installé à Marseille depuis 2014, The Barber est né de la passion pour le rasage traditionnel et la coupe masculine. Notre équipe de barbiers expérimentés vous accueille dans un espace chaleureux et moderne.</p>
+      <button class="btn-light">En savoir plus</button>
+    </div>
+    <div class="about-right">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-num">10+</div><div class="stat-label">Ans d'expérience</div></div>
+        <div class="stat-card"><div class="stat-num">5k+</div><div class="stat-label">Clients fidèles</div></div>
+        <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Barbiers experts</div></div>
+        <div class="stat-card"><div class="stat-num">4.9★</div><div class="stat-label">Note moyenne</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booking">
+    <div class="booking-inner">
+      <div>
+        <h2 class="booking-title">Réservez votre séance</h2>
+        <p class="booking-sub">Choisissez votre créneau en ligne en quelques secondes. Confirmation immédiate par SMS.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-secondary);"><i class="ti ti-check" style="color:var(--text-success);" aria-hidden="true"></i>Annulation gratuite</div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-secondary);"><i class="ti ti-check" style="color:var(--text-success);" aria-hidden="true"></i>Rappel SMS</div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-secondary);"><i class="ti ti-check" style="color:var(--text-success);" aria-hidden="true"></i>Sans avance</div>
+        </div>
+      </div>
+      <div class="booking-form">
+        <div class="form-row">
+          <input class="form-input" type="text" placeholder="Votre prénom" />
+          <input class="form-input" type="tel" placeholder="Téléphone" />
+        </div>
+        <select class="form-select">
+          <option>Choisir une prestation</option>
+          <option>Coupe homme — 20€</option>
+          <option>Barbe — 15€</option>
+          <option>Coupe + Barbe — 30€</option>
+        </select>
+        <input class="form-input" type="date" />
+        <button class="form-submit">Confirmer le rendez-vous</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="reviews">
+    <div class="section-header">
+      <h2 class="section-title">Ce qu'ils disent</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+        <div class="review-text">"Meilleur barbier de Marseille sans hésiter. La coupe est parfaite à chaque fois, le rasage traditionnel est une expérience unique."</div>
+        <div class="review-author">Mehdi K. — Marseille</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+        <div class="review-text">"Accueil top, ambiance sympa et résultat impeccable. Je recommande à tous mes amis. The Barber c'est une référence."</div>
+        <div class="review-author">Thomas R. — Marseille</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i></div>
+        <div class="review-text">"Réservation simple, ponctuel, coupe soignée. Le meilleur rapport qualité-prix que j'ai trouvé dans le coin."</div>
+        <div class="review-author">Amine B. — Aubagne</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <div class="footer-logo">The Barber</div>
+      <div class="footer-desc">Barbier professionnel à Marseille. Coupe, barbe et rasage traditionnel depuis 2014.</div>
+      <div class="footer-social">
+        <i class="ti ti-brand-instagram" aria-hidden="true"></i>
+        <i class="ti ti-brand-tiktok" aria-hidden="true"></i>
+        <i class="ti ti-brand-google" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <a class="footer-link">Coupe homme</a>
+      <a class="footer-link">Barbe</a>
+      <a class="footer-link">Rasage traditionnel</a>
+      <a class="footer-link">Forfaits</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Infos</div>
+      <a class="footer-link">Notre histoire</a>
+      <a class="footer-link">L'équipe</a>
+      <a class="footer-link">Galerie</a>
+      <a class="footer-link">Blog</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <a class="footer-link">32 Rue du Canada</a>
+      <a class="footer-link">Marseille 13010</a>
+      <a class="footer-link">06 00 00 00 00</a>
+      <a class="footer-link">Réserver en ligne</a>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 The Barber Marseille</span>
+    <span class="footer-copy">Mentions légales · CGV</span>
+  </div>
+</div>
